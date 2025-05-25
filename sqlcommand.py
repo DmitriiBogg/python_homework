@@ -66,3 +66,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+# took information from this file used the code:
+# SELECT o.order_id, SUM(p.price * li.quantity) AS total_price
+# FROM orders o
+# JOIN line_items li ON o.order_id = li.order_id
+# JOIN products p ON li.product_id = p.product_id
+# GROUP BY o.order_id
+# ORDER BY o.order_id
+# LIMIT 5;
+# in Console

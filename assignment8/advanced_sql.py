@@ -27,32 +27,33 @@ def task1():
 
 # Task 2: Understanding Subqueries
 def task2():
-    conn = sqlite3.connect("../db/lesson.db")
-    conn.execute("PRAGMA foreign_keys = 1")
-    cursor = conn.cursor()
-
-    query = """
-    SELECT c.customer_name, AVG(sub.total_price) AS average_total_price
-    FROM customers c
-    LEFT JOIN (
-        SELECT o.customer_id AS customer_id_b, SUM(p.price * li.quantity) AS total_price
-        FROM orders o
-        JOIN line_items li ON o.order_id = li.order_id
-        JOIN products p ON li.product_id = p.product_id
-        GROUP BY o.order_id, o.customer_id
-    ) AS sub
-    ON c.customer_id = sub.customer_id_b
-    GROUP BY c.customer_id;
-    """
-
-    cursor.execute(query)
-    results = cursor.fetchall()
-
     print("\nTask 2: Understanding Subqueries")
-    for row in results:
-        name = row[0]
-        avg_price = row[1]
-        print(f"Customer: {name}, Average Total Price: {avg_price:.2f}" if avg_price is not None else f"Customer: {name}, No Orders")
+
+    with sqlite3.connect("../db/lesson.db") as conn:
+        conn.execute("PRAGMA foreign_keys = 1")
+        cursor = conn.cursor()
+
+        query = """
+        SELECT c.customer_name, AVG(sub.total_price) AS average_total_price
+        FROM customers c
+        LEFT JOIN (
+            SELECT o.customer_id AS customer_id_b, SUM(p.price * li.quantity) AS total_price
+            FROM orders o
+            JOIN line_items li ON o.order_id = li.order_id
+            JOIN products p ON li.product_id = p.product_id
+            GROUP BY o.order_id, o.customer_id
+        ) AS sub
+        ON c.customer_id = sub.customer_id_b
+        GROUP BY c.customer_id;
+        """
+
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+        for row in results:
+            name = row[0]
+            avg_price = row[1]
+            print(f"Customer: {name}, Average Total Price: {avg_price:.2f}" if avg_price is not None else f"Customer: {name}, No Orders")
 
 # Task 3: An Insert Transaction Based on Data 
 def task3():
