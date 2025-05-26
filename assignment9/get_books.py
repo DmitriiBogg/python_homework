@@ -52,10 +52,10 @@ try:
     print(df)
 
     # CSV
-    df.to_csv("assignment9/get_books.csv", index=False)
+    df.to_csv("get_books.csv", index=False)
 
     # JSON
-    with open("assignment9/get_books.json", "w", encoding="utf-8") as f:
+    with open("get_books.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=4, ensure_ascii=False)
 
 except Exception as e:
