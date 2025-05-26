@@ -1,0 +1,12 @@
+1. Disallowed sections:
+   - /staff/
+
+2. User agents that are completely disallowed:
+   - ChatGPT, GPTBot
+   - ClaudeBot, Claude-Web
+   - Applebot, Amazonbot, FacebookBot, and others
+
+3. Purpose of the robots.txt file:
+    The robots.txt file governs the behavior of automated crawlers and bots.
+    It helps website owners manage server load, protect private areas of the site, and prevent unethical data collection. 
+    Following its rules is a fundamental principle of ethical web scraping.
