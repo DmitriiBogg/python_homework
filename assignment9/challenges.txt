@@ -6,13 +6,13 @@ Challenges faced:
 3. The final A10 link used a different format: "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/" — it required manual inspection to find.
 4. Some descriptions were not found under <p> tags as expected, so a fallback CSS selector had to be used.
 5. CSV output formatting needed tuning for better readability.
+6. At first, I misunderstood the task — I thought we had to hardcode URLs instead of parsing from the main OWASP page.
+7. It took a while to notice the structure of the list on the main page: that each vulnerability is inside an li tag, with the title in a nested strong tag inside an a tag (i.e., li > a > strong). 
+Only after inspecting the DOM more carefully, I saw the consistent pattern.
 
 Solutions:
 - Used a hardcoded list of URLs with verified working links.
 - Added error handling and printed debug info for failures.
 - Used sleep() to allow pages to fully load.
 - Used pandas with encoding="utf-8-sig" and semicolon delimiter for readable CSV.
-
-The final code now successfully extracts title, link, and description for all Top 10 vulnerabilities from OWASP 2021 and writes to owasp_top_10.csv.
-
-used ChatGPT for making right text after my ...not good words... after whole day for 1 task (lol)
+- Improved understanding of the DOM using browser dev tools, which helped fix the parsing logic for title, description, and link detection.
