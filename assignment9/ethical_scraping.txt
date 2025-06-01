@@ -1,0 +1,35 @@
+https://durhamcountylibrary.org/robots.txt
+1. Disallowed sections:
+   - /staff/
+
+2. User agents that are completely disallowed:
+   - ChatGPT, GPTBot
+   - ClaudeBot, Claude-Web
+   - Applebot, Amazonbot, FacebookBot, and others
+
+3. Purpose of the robots.txt file:
+    The robots.txt file governs the behavior of automated crawlers and bots.
+    It helps website owners manage server load, protect private areas of the site, and prevent unethical data collection. 
+    Following its rules is a fundamental principle of ethical web scraping.
+
+https://en.wikipedia.org/robots.txt
+1. Disallowed sections for all user agents:
+   - /w/
+   - /api/
+   - /trap/
+   - /wiki/Special:
+   - /wiki/Spezial:
+   - /wiki/Spesial:
+   - /wiki/Wikipedia:* (many internal admin and discussion pages)
+   - /wiki/MediaWiki:* (blacklists and spam-related tools)
+
+2. Specific user-agent rules:
+   - MJ12bot, wget, grub-client, HTTrack, WebCopier and many others are fully disallowed.
+   - Bots like IsraBot and Orthogaffe are allowed without restrictions.
+   - General rule for "User-agent: *" allows access to standard article pages and some API paths (e.g., mobileview).
+
+3. Ethical note:
+   The robots.txt file defines access permissions for bots and web crawlers. 
+   It helps protect sensitive or administrative parts of the site, conserve server resources, and reflect the intentions of site owners. 
+   Ethical scraping means respecting these instructions at all times and ensuring fair, non-disruptive data collection.
+
